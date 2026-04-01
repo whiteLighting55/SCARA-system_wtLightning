@@ -1586,6 +1586,7 @@ CMakeFiles/appScaraHMI.dir/build/.rcc/qmlcache/appScaraHMI_ui/Main_qml.cpp.o: .r
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qlist.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qlocale.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qlogging.h \
+  /usr/include/x86_64-linux-gnu/qt6/QtCore/qloggingcategory.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qmalloc.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qmap.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qmath.h \
@@ -3087,6 +3088,8 @@ CMakeFiles/3.31.6/CMakeSystem.cmake:
 /usr/lib/x86_64-linux-gnu/libQt6OpenGL.so.6.9.2:
 
 /usr/include/c++/15/bits/monostate.h:
+
+/usr/include/x86_64-linux-gnu/qt6/QtCore/qloggingcategory.h:
 
 /usr/include/c++/15/tr1/modified_bessel_func.tcc:
 

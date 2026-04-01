@@ -3,6 +3,17 @@ import QtQuick.Controls
 import QtQuick.Layouts
 
 ApplicationWindow {
+
+    FontLoader {
+        id: swish
+        source: "qrc:/ScaraHMI/assets/fonts/SWISHBUT.TTF"
+    }
+
+    Component.onCompleted: {
+        console.log("Font loaded:", swish.name)
+    }
+
+
     visible: true
     width: 800
     height: 500
@@ -26,7 +37,7 @@ ApplicationWindow {
                 spacing: 20
                 Text { text: "Estado: IDLE"; color:"white"}
                 Text { text: "Conectando"; color:"lightgreen"}
-                Text { text: "Modo manual"; color:"white"}
+                Text { text: "Modo: " + mode; color:"white"}
             }
         }
         RowLayout {
@@ -105,8 +116,16 @@ ApplicationWindow {
 
                 // 🎯 BOTÓN PRINCIPAL
                 Button {
-                    text: "MOVE HERE"
+
                     Layout.alignment: Qt.AlignHCenter
+
+                    contentItem: Text {
+                        text: "(MOVE HERE)"
+                        font.family: swish.name
+                        font.pixelSize: 18
+                        color: "#000000"
+                        anchors.centerIn: parent
+                    }
 
                     onPressed: console.log("Moving...")
                     onReleased: console.log("Stopped")

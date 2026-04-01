@@ -1593,6 +1593,7 @@ CMakeFiles/appScaraHMI.dir/build/.rcc/qmlcache/appScaraHMI_ui/Main_qml.cpp.o
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qlist.h
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qlocale.h
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qlogging.h
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qloggingcategory.h
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qmalloc.h
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qmap.h
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qmath.h

@@ -122,6 +122,7 @@ ScaraHMI/appScaraHMI.qmltypes: appscarahmi_qmltyperegistrations.cpp
 	@$(CMAKE_COMMAND) -E touch_nocreate .rcc/qmlcache/appScaraHMI_ui/Main_qml.cpp.aotstats
 
 .qt/rcc/qrc_appScaraHMI_raw_qml_0.cpp: /media/white_lightning/storage/ITESM/Diseño_y_desarrollo_de_robots/SCARA/hmi/ui/Main.qml
+.qt/rcc/qrc_appScaraHMI_raw_qml_0.cpp: /media/white_lightning/storage/ITESM/Diseño_y_desarrollo_de_robots/SCARA/hmi/assets/fonts/SWISHBUT.TTF
 .qt/rcc/qrc_appScaraHMI_raw_qml_0.cpp: .qt/rcc/appScaraHMI_raw_qml_0.qrc
 .qt/rcc/qrc_appScaraHMI_raw_qml_0.cpp: /usr/lib/qt6/libexec/rcc
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/media/white_lightning/storage/ITESM/Diseño_y_desarrollo_de_robots/SCARA/hmi/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Running rcc for resource appScaraHMI_raw_qml_0"

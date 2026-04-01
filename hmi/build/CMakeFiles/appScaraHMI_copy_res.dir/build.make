@@ -69,6 +69,7 @@ include CMakeFiles/appScaraHMI_copy_res.dir/progress.make
 CMakeFiles/appScaraHMI_copy_res: .qt/appScaraHMI_res.txt
 
 .qt/appScaraHMI_res.txt: /usr/lib/x86_64-linux-gnu/cmake/Qt6Qml/Qt6QmlCopyFiles.cmake
+.qt/appScaraHMI_res.txt: /media/white_lightning/storage/ITESM/Diseño_y_desarrollo_de_robots/SCARA/hmi/assets/fonts/SWISHBUT.TTF
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/media/white_lightning/storage/ITESM/Diseño_y_desarrollo_de_robots/SCARA/hmi/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Copying appScaraHMI qml resources into build dir"
 	/usr/bin/cmake -DFILES_INFO_PATH=/media/white_lightning/storage/ITESM/Diseño_y_desarrollo_de_robots/SCARA/hmi/build/.qt/appScaraHMI_res.cmake -P /usr/lib/x86_64-linux-gnu/cmake/Qt6Qml/Qt6QmlCopyFiles.cmake
 
