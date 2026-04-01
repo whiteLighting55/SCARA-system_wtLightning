@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="/ScaraHMI/">
+    <file alias="ui/Main.qml">/media/white_lightning/storage/ITESM/Diseño_y_desarrollo_de_robots/SCARA/hmi/ui/Main.qml</file>
+  </qresource>
+</RCC>
+

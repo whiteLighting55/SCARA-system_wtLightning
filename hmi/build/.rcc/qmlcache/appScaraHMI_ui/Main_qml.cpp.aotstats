@@ -1,0 +1,20 @@
+[
+    {
+        "moduleFiles": [
+            {
+                "entries": [
+                    {
+                        "codegenSuccessful": true,
+                        "column": 27,
+                        "durationMicroseconds": 65,
+                        "errorMessage": "",
+                        "functionName": "centerIn",
+                        "line": 11
+                    }
+                ],
+                "filePath": "/media/white_lightning/storage/ITESM/Diseño_y_desarrollo_de_robots/SCARA/hmi/ui/Main.qml"
+            }
+        ],
+        "moduleId": "ScaraHMI(appScaraHMI)"
+    }
+]

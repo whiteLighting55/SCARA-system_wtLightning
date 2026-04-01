@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="/">
+    <file alias="/ScaraHMI">/media/white_lightning/storage/ITESM/Diseño_y_desarrollo_de_robots/SCARA/hmi/build/ScaraHMI</file>
+
+  </qresource>
+</RCC>

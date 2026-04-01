@@ -1,0 +1,2 @@
+set(__QT_DEPLOY_TARGET_appScaraHMI_FILE /media/white_lightning/storage/ITESM/Diseño_y_desarrollo_de_robots/SCARA/hmi/build/appScaraHMI)
+set(__QT_DEPLOY_TARGET_appScaraHMI_TYPE EXECUTABLE)
