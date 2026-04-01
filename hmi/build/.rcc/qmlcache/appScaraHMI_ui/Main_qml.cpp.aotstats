@@ -6,10 +6,10 @@
                     {
                         "codegenSuccessful": true,
                         "column": 23,
-                        "durationMicroseconds": 67,
+                        "durationMicroseconds": 68,
                         "errorMessage": "",
                         "functionName": "fill",
-                        "line": 22
+                        "line": 21
                     },
                     {
                         "codegenSuccessful": true,
@@ -17,28 +17,28 @@
                         "durationMicroseconds": 30,
                         "errorMessage": "",
                         "functionName": "centerIn",
-                        "line": 32
+                        "line": 30
                     },
                     {
                         "codegenSuccessful": false,
                         "column": 27,
-                        "durationMicroseconds": 45,
+                        "durationMicroseconds": 34,
                         "errorMessage": "Cannot retrieve a non-object type by ID: move_btn",
                         "functionName": "text",
-                        "line": 35
+                        "line": 34
                     },
                     {
                         "codegenSuccessful": false,
                         "column": 28,
-                        "durationMicroseconds": 30,
+                        "durationMicroseconds": 28,
                         "errorMessage": "Cannot retrieve a non-object type by ID: move_btn",
                         "functionName": "color",
-                        "line": 36
+                        "line": 35
                     },
                     {
                         "codegenSuccessful": false,
                         "column": 30,
-                        "durationMicroseconds": 22,
+                        "durationMicroseconds": 21,
                         "errorMessage": "Cannot access value for name mode",
                         "functionName": "text",
                         "line": 40
@@ -49,7 +49,15 @@
                         "durationMicroseconds": 30,
                         "errorMessage": "",
                         "functionName": "centerIn",
-                        "line": 59
+                        "line": 60
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 31,
+                        "durationMicroseconds": 28,
+                        "errorMessage": "",
+                        "functionName": "fill",
+                        "line": 74
                     },
                     {
                         "codegenSuccessful": false,
@@ -57,23 +65,23 @@
                         "durationMicroseconds": 0,
                         "errorMessage": "Could not find property \"checked\".",
                         "functionName": "checked",
+                        "line": 84
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 36,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Could not find signal \"clicked\".",
+                        "functionName": "onClicked",
                         "line": 85
                     },
                     {
                         "codegenSuccessful": false,
-                        "column": 36,
-                        "durationMicroseconds": 0,
-                        "errorMessage": "Could not find signal \"clicked\".",
-                        "functionName": "onClicked",
-                        "line": 86
-                    },
-                    {
-                        "codegenSuccessful": false,
                         "column": 34,
                         "durationMicroseconds": 0,
                         "errorMessage": "Could not find property \"checked\".",
                         "functionName": "checked",
-                        "line": 92
+                        "line": 91
                     },
                     {
                         "codegenSuccessful": false,
@@ -81,31 +89,31 @@
                         "durationMicroseconds": 0,
                         "errorMessage": "Could not find signal \"clicked\".",
                         "functionName": "onClicked",
-                        "line": 93
+                        "line": 92
                     },
                     {
                         "codegenSuccessful": false,
                         "column": 38,
-                        "durationMicroseconds": 38,
+                        "durationMicroseconds": 37,
                         "errorMessage": "Cannot access value for name mode",
                         "functionName": "sourceComponent",
-                        "line": 103
+                        "line": 101
                     },
                     {
-                        "codegenSuccessful": true,
-                        "column": 39,
-                        "durationMicroseconds": 50,
-                        "errorMessage": "",
-                        "functionName": "alignment",
-                        "line": 109
+                        "codegenSuccessful": false,
+                        "column": 32,
+                        "durationMicroseconds": 27,
+                        "errorMessage": "Cannot access value for name move_btn",
+                        "functionName": "color",
+                        "line": 111
                     },
                     {
                         "codegenSuccessful": false,
                         "column": 38,
-                        "durationMicroseconds": 15,
+                        "durationMicroseconds": 14,
                         "errorMessage": "Cannot access value for name swish",
                         "functionName": "family",
-                        "line": 113
+                        "line": 116
                     },
                     {
                         "codegenSuccessful": false,
@@ -113,47 +121,143 @@
                         "durationMicroseconds": 5,
                         "errorMessage": "Cannot access value for name parent",
                         "functionName": "centerIn",
-                        "line": 116
+                        "line": 119
                     },
                     {
                         "codegenSuccessful": false,
-                        "column": 40,
+                        "column": 44,
                         "durationMicroseconds": 0,
                         "errorMessage": "Could not find signal \"pressed\".",
                         "functionName": "onPressed",
-                        "line": 134
+                        "line": 144
                     },
                     {
                         "codegenSuccessful": false,
-                        "column": 46,
-                        "durationMicroseconds": 15,
+                        "column": 50,
+                        "durationMicroseconds": 16,
                         "errorMessage": "Cannot access value for name swish",
                         "functionName": "family",
-                        "line": 131
-                    },
-                    {
-                        "codegenSuccessful": false,
-                        "column": 35,
-                        "durationMicroseconds": 24,
-                        "errorMessage": "Cannot retrieve a non-object type by ID: sliderX",
-                        "functionName": "text",
                         "line": 141
                     },
                     {
                         "codegenSuccessful": false,
-                        "column": 40,
-                        "durationMicroseconds": 0,
-                        "errorMessage": "Could not find signal \"pressed\".",
-                        "functionName": "onPressed",
-                        "line": 157
+                        "column": 39,
+                        "durationMicroseconds": 23,
+                        "errorMessage": "Cannot retrieve a non-object type by ID: sliderX",
+                        "functionName": "text",
+                        "line": 152
                     },
                     {
                         "codegenSuccessful": false,
-                        "column": 46,
+                        "column": 44,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Could not find signal \"pressed\".",
+                        "functionName": "onPressed",
+                        "line": 170
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 50,
                         "durationMicroseconds": 15,
                         "errorMessage": "Cannot access value for name swish",
                         "functionName": "family",
-                        "line": 154
+                        "line": 167
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 44,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Could not find signal \"pressed\".",
+                        "functionName": "onPressed",
+                        "line": 188
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 50,
+                        "durationMicroseconds": 15,
+                        "errorMessage": "Cannot access value for name swish",
+                        "functionName": "family",
+                        "line": 185
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 39,
+                        "durationMicroseconds": 19,
+                        "errorMessage": "Cannot retrieve a non-object type by ID: sliderY",
+                        "functionName": "text",
+                        "line": 196
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 44,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Could not find signal \"pressed\".",
+                        "functionName": "onPressed",
+                        "line": 214
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 50,
+                        "durationMicroseconds": 15,
+                        "errorMessage": "Cannot access value for name swish",
+                        "functionName": "family",
+                        "line": 211
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 44,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Could not find signal \"pressed\".",
+                        "functionName": "onPressed",
+                        "line": 232
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 50,
+                        "durationMicroseconds": 15,
+                        "errorMessage": "Cannot access value for name swish",
+                        "functionName": "family",
+                        "line": 229
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 39,
+                        "durationMicroseconds": 18,
+                        "errorMessage": "Cannot retrieve a non-object type by ID: sliderZ",
+                        "functionName": "text",
+                        "line": 240
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 44,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Could not find signal \"pressed\".",
+                        "functionName": "onPressed",
+                        "line": 258
+                    },
+                    {
+                        "codegenSuccessful": false,
+                        "column": 50,
+                        "durationMicroseconds": 15,
+                        "errorMessage": "Cannot access value for name swish",
+                        "functionName": "family",
+                        "line": 255
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 35,
+                        "durationMicroseconds": 31,
+                        "errorMessage": "",
+                        "functionName": "fill",
+                        "line": 273
+                    },
+                    {
+                        "codegenSuccessful": true,
+                        "column": 43,
+                        "durationMicroseconds": 28,
+                        "errorMessage": "",
+                        "functionName": "centerIn",
+                        "line": 276
                     }
                 ],
                 "filePath": "/media/white_lightning/storage/ITESM/Diseño_y_desarrollo_de_robots/SCARA/hmi/ui/Main.qml"
