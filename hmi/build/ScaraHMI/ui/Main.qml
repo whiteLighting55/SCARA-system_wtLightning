@@ -46,19 +46,8 @@ ApplicationWindow {
 
             //Left panel
             Rectangle {
-                //Layout.preferredWith: 150
                 Layout.fillHeight: true
                 color: "#1f1f1f"
-
-                ColumnLayout{
-                    Layout.fillWidth: true
-                    Layout.fillHeight: true
-                    spacing: 15
-
-                    Button{ text:"JOG"}
-                    Button{ text:"PROGRAM"}
-                    Button{ text: "MONITOR"}
-                }
             }
             //Viewport
             Rectangle {
@@ -137,8 +126,16 @@ ApplicationWindow {
                     spacing: 30
                     Row {
                         Button {
-                            text: "◀"
+                            contentItem: Text{
+                                text: "(<)"
+                                font.family: swish.name
+                                color: "#FFFFFF"
+                            }
                             onPressed: sliderX.value -=1
+                            background: Rectangle{
+                                color: "#686868"
+                                radius: 50
+                            }
                         }
                         Text {
                             text: ("X: " + sliderX.value.toFixed(1)).toUpperCase()
@@ -152,8 +149,16 @@ ApplicationWindow {
                             id: sliderX
                         }
                         Button {
-                            text: "▶"
+                            contentItem: Text{
+                                text: "(>)"
+                                font.family: swish.name
+                                color: "#FFFFFF"
+                            }
                             onPressed: sliderX.value +=1
+                            background: Rectangle{
+                                color: "#686868"
+                                radius: 50
+                            }
                         }
                     }
                 }
