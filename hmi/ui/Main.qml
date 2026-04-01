@@ -8,8 +8,148 @@ ApplicationWindow {
     height: 500
     title: "Teach Pendant: White Lightning Edition v1.0.0"
 
-    Text {
-        anchors.centerIn: parent
-        text: "Hola Capitán 🤖"
+    //variables a usar
+    property string mode:"cartesian"
+
+    ColumnLayout{
+        anchors.fill: parent
+
+        //Top Bar of the HMI
+        Rectangle {
+
+            Layout.fillWidth: true
+            height: 50
+            color: "#2c2c2c"
+
+            Row{
+                anchors.centerIn: parent
+                spacing: 20
+                Text { text: "Estado: IDLE"; color:"white"}
+                Text { text: "Conectando"; color:"lightgreen"}
+                Text { text: "Modo manual"; color:"white"}
+            }
+        }
+        RowLayout {
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+
+            //Left panel
+            Rectangle {
+                //Layout.preferredWith: 150
+                Layout.fillHeight: true
+                color: "#1f1f1f"
+
+                ColumnLayout{
+                    Layout.fillWidth: true
+                    Layout.fillHeight: true
+                    spacing: 15
+
+                    Button{ text:"JOG"}
+                    Button{ text:"PROGRAM"}
+                    Button{ text: "MONITOR"}
+                }
+            }
+            //Viewport
+            Rectangle {
+                Layout.fillWidth: true
+                Layout.fillHeight: true
+                color: "#121212"
+
+                Text {
+                    anchors.centerIn: parent
+                    text: "VISTA DEL SCARA"
+                    color:"#ffffff"
+                }
+            }
+        }
+        //control panel
+
+        Rectangle {
+            Layout.fillWidth: true
+            height: 180
+            color: "#2c2c2c"
+
+            ColumnLayout {
+                Layout.fillWidth: true
+                Layout.fillHeight: true
+                spacing: 10
+
+
+                // 🔘 SELECTOR DE MODO
+                Row {
+                    spacing: 10
+
+                    Button {
+                        text: "Operacional"
+                        checkable: true
+                        checked: mode === "cartesian"
+                        onClicked: mode = "cartesian"
+                    }
+
+                    Button {
+                        text: "Joints"
+                        checkable: true
+                        checked: mode === "joints"
+                        onClicked: mode = "joints"
+                    }
+                }
+
+                // 📦 CONTENIDO DINÁMICO
+                Loader {
+                    id: loader
+                    Layout.fillWidth: true
+                    Layout.fillHeight: true
+
+                    sourceComponent: mode === "cartesian" ? cartesianUI : jointsUI
+                }
+
+                // 🎯 BOTÓN PRINCIPAL
+                Button {
+                    text: "MOVE HERE"
+                    Layout.alignment: Qt.AlignHCenter
+
+                    onPressed: console.log("Moving...")
+                    onReleased: console.log("Stopped")
+                }
+            }
+
+            // 🔵 CARTESIAN UI
+            Component {
+                id: cartesianUI
+
+                Row {
+                    spacing: 30
+
+                    Column {
+                        Text { text: "X"; color: "white" }
+                        Slider { from: -200; to: 200 }
+                    }
+
+                    Column {
+                        Text { text: "Y"; color: "white" }
+                        Slider { from: -200; to: 200 }
+                    }
+                }
+            }
+
+            // 🟡 JOINT UI
+            Component {
+                id: jointsUI
+
+                Row {
+                    spacing: 30
+
+                    Column {
+                        Text { text: "θ1"; color: "white" }
+                        Slider { from: -180; to: 180 }
+                    }
+
+                    Column {
+                        Text { text: "θ2"; color: "white" }
+                        Slider { from: -180; to: 180 }
+                    }
+                }
+            }
+        }
     }
 }

@@ -8,11 +8,15 @@ ApplicationWindow {
     height: 500
     title: "Teach Pendant: White Lightning Edition v1.0.0"
 
+    //variables a usar
+    property string mode:"cartesian"
+
     ColumnLayout{
         anchors.fill: parent
 
         //Top Bar of the HMI
         Rectangle {
+
             Layout.fillWidth: true
             height: 50
             color: "#2c2c2c"
@@ -35,8 +39,9 @@ ApplicationWindow {
                 Layout.fillHeight: true
                 color: "#1f1f1f"
 
-                Column{
-                    anchors.centerIn: parent
+                ColumnLayout{
+                    Layout.fillWidth: true
+                    Layout.fillHeight: true
                     spacing: 15
 
                     Button{ text:"JOG"}
@@ -59,25 +64,90 @@ ApplicationWindow {
         }
         //control panel
 
-        Rectangle{
+        Rectangle {
             Layout.fillWidth: true
-            height: 150
+            height: 180
             color: "#2c2c2c"
-            Row{
-                anchors.centerIn: parent
-                spacing: 50
-                Column{
-                    Text { text: "X";color: "#FFFFFF"}
-                    Slider {from: -100;to:100}
+
+            ColumnLayout {
+                Layout.fillWidth: true
+                Layout.fillHeight: true
+                spacing: 10
+
+
+                // 🔘 SELECTOR DE MODO
+                Row {
+                    spacing: 10
+
+                    Button {
+                        text: "Operacional"
+                        checkable: true
+                        checked: mode === "cartesian"
+                        onClicked: mode = "cartesian"
+                    }
+
+                    Button {
+                        text: "Joints"
+                        checkable: true
+                        checked: mode === "joints"
+                        onClicked: mode = "joints"
+                    }
                 }
-                Column{
-                    Text { text: "Y";color: "#FFFFFF"}
-                    Slider {from: -100;to:100}
+
+                // 📦 CONTENIDO DINÁMICO
+                Loader {
+                    id: loader
+                    Layout.fillWidth: true
+                    Layout.fillHeight: true
+
+                    sourceComponent: mode === "cartesian" ? cartesianUI : jointsUI
                 }
-                Button{
+
+                // 🎯 BOTÓN PRINCIPAL
+                Button {
                     text: "MOVE HERE"
-                    onPressed: console.log("moving...\n")
-                    onReleased: console.log("Stopped\n")
+                    Layout.alignment: Qt.AlignHCenter
+
+                    onPressed: console.log("Moving...")
+                    onReleased: console.log("Stopped")
+                }
+            }
+
+            // 🔵 CARTESIAN UI
+            Component {
+                id: cartesianUI
+
+                Row {
+                    spacing: 30
+
+                    Column {
+                        Text { text: "X"; color: "white" }
+                        Slider { from: -200; to: 200 }
+                    }
+
+                    Column {
+                        Text { text: "Y"; color: "white" }
+                        Slider { from: -200; to: 200 }
+                    }
+                }
+            }
+
+            // 🟡 JOINT UI
+            Component {
+                id: jointsUI
+
+                Row {
+                    spacing: 30
+
+                    Column {
+                        Text { text: "θ1"; color: "white" }
+                        Slider { from: -180; to: 180 }
+                    }
+
+                    Column {
+                        Text { text: "θ2"; color: "white" }
+                        Slider { from: -180; to: 180 }
+                    }
                 }
             }
         }
