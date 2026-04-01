@@ -9,10 +9,6 @@ ApplicationWindow {
         source: "qrc:/ScaraHMI/assets/fonts/SWISHBUT.TTF"
     }
 
-    Component.onCompleted: {
-        console.log("Font loaded:", swish.name)
-    }
-
 
     visible: true
     width: 800
@@ -35,7 +31,11 @@ ApplicationWindow {
             Row{
                 anchors.centerIn: parent
                 spacing: 20
-                Text { text: "Estado: IDLE"; color:"white"}
+                Text {
+                    text: "Estado: " + (move_btn.pressed ? "moving" : "stopped").toUpperCase()
+                    color: (move_btn.pressed ? "#00ff00" : "#ff0000")
+                    font.bold: true
+                }
                 Text { text: "Conectando"; color:"lightgreen"}
                 Text { text: "Modo: " + mode; color:"white"}
             }
@@ -116,7 +116,7 @@ ApplicationWindow {
 
                 // 🎯 BOTÓN PRINCIPAL
                 Button {
-
+                    id: move_btn
                     Layout.alignment: Qt.AlignHCenter
 
                     contentItem: Text {
@@ -126,9 +126,6 @@ ApplicationWindow {
                         color: "#000000"
                         anchors.centerIn: parent
                     }
-
-                    onPressed: console.log("Moving...")
-                    onReleased: console.log("Stopped")
                 }
             }
 
@@ -146,6 +143,11 @@ ApplicationWindow {
 
                     Column {
                         Text { text: "Y"; color: "white" }
+                        Slider { from: -200; to: 200 }
+                    }
+
+                    Column {
+                        Text { text: "Z"; color: "white" }
                         Slider { from: -200; to: 200 }
                     }
                 }
