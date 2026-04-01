@@ -135,20 +135,26 @@ ApplicationWindow {
 
                 Row {
                     spacing: 30
+                    Row {
+                        Button {
+                            text: "◀"
+                            onPressed: sliderX.value -=1
+                        }
+                        Text {
+                            text: ("X: " + sliderX.value.toFixed(1)).toUpperCase()
+                            font.bold: true
+                            color: "#FF0000"
 
-                    Column {
-                        Text { text: "X"; color: "white" }
-                        Slider { from: -200; to: 200 }
-                    }
-
-                    Column {
-                        Text { text: "Y"; color: "white" }
-                        Slider { from: -200; to: 200 }
-                    }
-
-                    Column {
-                        Text { text: "Z"; color: "white" }
-                        Slider { from: -200; to: 200 }
+                        }
+                        Slider {
+                            from: 0
+                            to: 50
+                            id: sliderX
+                        }
+                        Button {
+                            text: "▶"
+                            onPressed: sliderX.value +=1
+                        }
                     }
                 }
             }
@@ -161,12 +167,16 @@ ApplicationWindow {
                     spacing: 30
 
                     Column {
-                        Text { text: "θ1"; color: "white" }
+                        Text { text: "base"; color: "white" }
                         Slider { from: -180; to: 180 }
                     }
 
                     Column {
-                        Text { text: "θ2"; color: "white" }
+                        Text { text: "Codo"; color: "white" }
+                        Slider { from: -180; to: 180 }
+                    }
+                    Column {
+                        Text { text: "Wrist"; color: "white" }
                         Slider { from: -180; to: 180 }
                     }
                 }
@@ -174,3 +184,4 @@ ApplicationWindow {
         }
     }
 }
+
