@@ -14,67 +14,57 @@ ApplicationWindow {
     height: 500
     title: "Teach Pendant: White Lightning Edition v1.0.0"
 
-    //variables a usar
-    property string mode:"cartesian"
+    property string mode: "cartesian"
 
-    ColumnLayout{
+    ColumnLayout {
         anchors.fill: parent
+        spacing: 0
 
-        //Top Bar of the HMI
+        // 🔝 TOP BAR
         Rectangle {
             Layout.fillWidth: true
             height: 50
             color: "#2c2c2c"
 
-            Row{
+            Row {
                 anchors.centerIn: parent
                 spacing: 20
 
                 Text {
                     text: "Estado: " + (move_btn.pressed ? "MOVING" : "STOPPED")
-                    color: (move_btn.pressed ? "#00ff00" : "#ff0000")
+                    color: move_btn.pressed ? "#00ff00" : "#ff0000"
                     font.bold: true
                 }
 
-                Text { text: "Conectando"; color:"lightgreen"}
-                Text { text: "Modo: " + mode; color:"white"}
+                Text { text: "Conectando"; color: "lightgreen" }
+                Text { text: "Modo: " + mode; color: "white" }
             }
         }
 
-        RowLayout {
-            Layout.fillWidth: true
-            Layout.fillHeight: true
-
-            Rectangle {
-                Layout.fillHeight: true
-                width: 80
-                color: "#1f1f1f"
-            }
-
-            Rectangle {
-                Layout.fillWidth: true
-                Layout.fillHeight: true
-                color: "#121212"
-
-                Text {
-                    anchors.centerIn: parent
-                    text: "VISTA DEL SCARA"
-                    color:"#ffffff"
-                }
-            }
-        }
-
-        //control panel
+        // 🖥️ VIEWPORT SCARA (SIN BARRA LATERAL)
         Rectangle {
             Layout.fillWidth: true
-            Layout.fillHeight : true
+            Layout.fillHeight: true
+            color: "#121212"
+
+            Text {
+                anchors.centerIn: parent
+                text: "VISTA DEL SCARA"
+                color: "#ffffff"
+            }
+        }
+
+        // 🎮 CONTROL PANEL
+        Rectangle {
+            Layout.fillWidth: true
+            Layout.fillHeight: true
             color: "#2c2c2c"
 
             ColumnLayout {
                 anchors.fill: parent
-                spacing: 10
+                spacing: 5
 
-                // 🔘 SELECTOR DE MODO
+                // 🔘 SELECTOR
                 Row {
                     spacing: 10
 
@@ -93,7 +83,7 @@ ApplicationWindow {
                     }
                 }
 
-
+                // 🔄 UI DINÁMICA
                 Loader {
                     id: loader
                     Layout.fillWidth: true
@@ -101,10 +91,11 @@ ApplicationWindow {
                     sourceComponent: mode === "cartesian" ? cartesianUI : jointsUI
                 }
 
-                // Boton de "move here"
+                // ▶️ BOTÓN
                 Button {
                     id: move_btn
                     Layout.fillWidth: true
+                    Layout.preferredHeight: 50
 
                     background: Rectangle {
                         radius: 25
@@ -124,33 +115,32 @@ ApplicationWindow {
             // 🔵 CARTESIAN UI
             Component {
                 id: cartesianUI
-                Item{
-                    Layout.fillWidth: true
-                    //Sliders de los ejes
-                    ColumnLayout{
-                        Layout.fillWidth: true
 
-                        //X slider
-                        RowLayout{
+                Item {
+                    anchors.fill: parent
+
+                    ColumnLayout {
+                        anchors.fill: parent
+                        spacing: 5
+
+                        // X
+                        RowLayout {
                             Layout.fillWidth: true
-                            spacing: 20
+                            spacing: 10
 
                             Button {
-                                contentItem: Text{
-                                    text: "(<)"
-                                    font.family: swish.name
-                                    color: "#FFFFFF"
-                                }
+                                Layout.minimumWidth: 40
+                                Layout.maximumWidth: 40
+                                Layout.fillHeight: true
+                                text: "(<)"
                                 onPressed: sliderX.value -= 1
-                                background: Rectangle{
-                                    color: "#686868"
-                                    radius: 50
-                                }
+                                font.family: swish.name
                             }
 
                             Text {
                                 text: "X: " + sliderX.value.toFixed(1)
-                                font.bold: true
+                                Layout.minimumWidth: 70
+                                Layout.maximumWidth: 70
                                 color: "#FF0000"
                             }
 
@@ -162,39 +152,33 @@ ApplicationWindow {
                             }
 
                             Button {
-                                contentItem: Text{
-                                    text: "(>)"
-                                    font.family: swish.name
-                                    color: "#FFFFFF"
-                                }
+                                Layout.minimumWidth: 40
+                                Layout.maximumWidth: 40
+                                Layout.fillHeight: true
+                                text: "(>)"
+                                font.family: swish.name
                                 onPressed: sliderX.value += 1
-                                background: Rectangle{
-                                    color: "#686868"
-                                    radius: 50
-                                }
                             }
                         }
-                        //Y slider
+
+                        // Y
                         RowLayout {
                             Layout.fillWidth: true
-                            spacing: 20
+                            spacing: 10
 
                             Button {
-                                contentItem: Text{
-                                    text: "(<)"
-                                    font.family: swish.name
-                                    color: "#FFFFFF"
-                                }
+                                Layout.minimumWidth: 40
+                                Layout.maximumWidth: 40
+                                Layout.fillHeight: true
+                                text: "(<)"
+                                font.family: swish.name
                                 onPressed: sliderY.value -= 1
-                                background: Rectangle{
-                                    color: "#686868"
-                                    radius: 50
-                                }
                             }
 
                             Text {
                                 text: "Y: " + sliderY.value.toFixed(1)
-                                font.bold: true
+                                Layout.minimumWidth: 70
+                                Layout.maximumWidth: 70
                                 color: "#00FF00"
                             }
 
@@ -206,39 +190,33 @@ ApplicationWindow {
                             }
 
                             Button {
-                                contentItem: Text{
-                                    text: "(>)"
-                                    font.family: swish.name
-                                    color: "#FFFFFF"
-                                }
+                                Layout.minimumWidth: 40
+                                Layout.maximumWidth: 40
+                                Layout.fillHeight: true
+                                text: "(>)"
+                                font.family: swish.name
                                 onPressed: sliderY.value += 1
-                                background: Rectangle{
-                                    color: "#686868"
-                                    radius: 50
-                                }
                             }
                         }
-                        //Z slider
+
+                        // Z
                         RowLayout {
                             Layout.fillWidth: true
-                            spacing: 20
+                            spacing: 10
 
                             Button {
-                                contentItem: Text{
-                                    text: "(<)"
-                                    font.family: swish.name
-                                    color: "#FFFFFF"
-                                }
+                                Layout.minimumWidth: 40
+                                Layout.maximumWidth: 40
+                                Layout.fillHeight: true
+                                text: "(<)"
+                                font.family: swish.name
                                 onPressed: sliderZ.value -= 1
-                                background: Rectangle{
-                                    color: "#686868"
-                                    radius: 50
-                                }
                             }
 
                             Text {
                                 text: "Z: " + sliderZ.value.toFixed(1)
-                                font.bold: true
+                                Layout.minimumWidth: 70
+                                Layout.maximumWidth: 70
                                 color: "#0000FF"
                             }
 
@@ -250,21 +228,18 @@ ApplicationWindow {
                             }
 
                             Button {
-                                contentItem: Text{
-                                    text: "(>)"
-                                    font.family: swish.name
-                                    color: "#FFFFFF"
-                                }
+                                Layout.minimumWidth: 40
+                                Layout.maximumWidth: 40
+                                Layout.fillHeight: true
+                                text: "(>)"
+                                font.family: swish.name
                                 onPressed: sliderZ.value += 1
-                                background: Rectangle{
-                                    color: "#686868"
-                                    radius: 50
-                                }
                             }
                         }
                     }
                 }
             }
+
             // 🟡 JOINT UI
             Component {
                 id: jointsUI
@@ -272,23 +247,122 @@ ApplicationWindow {
                 Item {
                     anchors.fill: parent
 
-                    Row {
-                        anchors.centerIn: parent
-                        spacing: 30
+                    ColumnLayout {
+                        anchors.fill: parent
+                        spacing: 5
 
-                        Column {
-                            Text { text: "BASE"; color: "white" }
-                            Slider { from: -180; to: 180; width: 100 }
+                        // Base
+                        RowLayout {
+                            Layout.fillWidth: true
+                            spacing: 10
+
+                            Button {
+                                Layout.minimumWidth: 40
+                                Layout.maximumWidth: 40
+                                Layout.fillHeight: true
+                                text: "(<)"
+                                onPressed: sliderB.value -= 1
+                                font.family: swish.name
+                            }
+
+                            Text {
+                                text: "Base: " + sliderB.value.toFixed(1)
+                                Layout.minimumWidth: 70
+                                Layout.maximumWidth: 70
+                                color: "#FF0000"
+                            }
+
+                            Slider {
+                                id: sliderB
+                                from: 0
+                                to: 50
+                                Layout.fillWidth: true
+                            }
+
+                            Button {
+                                Layout.minimumWidth: 40
+                                Layout.maximumWidth: 40
+                                Layout.fillHeight: true
+                                text: "(>)"
+                                font.family: swish.name
+                                onPressed: sliderB.value += 1
+                            }
                         }
 
-                        Column {
-                            Text { text: "CODO"; color: "white" }
-                            Slider { from: -180; to: 180; width: 100 }
+                        // Elbow
+                        RowLayout {
+                            Layout.fillWidth: true
+                            spacing: 10
+
+                            Button {
+                                Layout.minimumWidth: 40
+                                Layout.maximumWidth: 40
+                                Layout.fillHeight: true
+                                text: "(<)"
+                                font.family: swish.name
+                                onPressed: sliderE.value -= 1
+                            }
+
+                            Text {
+                                text: "Elbow: " + sliderE.value.toFixed(1)
+                                Layout.minimumWidth: 70
+                                Layout.maximumWidth: 70
+                                color: "#00FF00"
+                            }
+
+                            Slider {
+                                id: sliderE
+                                from: 0
+                                to: 50
+                                Layout.fillWidth: true
+                            }
+
+                            Button {
+                                Layout.minimumWidth: 40
+                                Layout.maximumWidth: 40
+                                Layout.fillHeight: true
+                                text: "(>)"
+                                font.family: swish.name
+                                onPressed: sliderE.value += 1
+                            }
                         }
 
-                        Column {
-                            Text { text: "WRIST"; color: "white" }
-                            Slider { from: -180; to: 180; width: 100 }
+                        // Wrist
+                        RowLayout {
+                            Layout.fillWidth: true
+                            spacing: 10
+
+                            Button {
+                                Layout.minimumWidth: 40
+                                Layout.maximumWidth: 40
+                                Layout.fillHeight: true
+                                text: "(<)"
+                                font.family: swish.name
+                                onPressed: sliderW.value -= 1
+                            }
+
+                            Text {
+                                text: "Wrist: " + sliderW.value.toFixed(1)
+                                Layout.minimumWidth: 70
+                                Layout.maximumWidth: 70
+                                color: "#0000FF"
+                            }
+
+                            Slider {
+                                id: sliderW
+                                from: 0
+                                to: 50
+                                Layout.fillWidth: true
+                            }
+
+                            Button {
+                                Layout.minimumWidth: 40
+                                Layout.maximumWidth: 40
+                                Layout.fillHeight: true
+                                text: "(>)"
+                                font.family: swish.name
+                                onPressed: sliderW.value += 1
+                            }
                         }
                     }
                 }
