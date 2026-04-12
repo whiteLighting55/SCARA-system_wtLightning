@@ -15,8 +15,12 @@ qt_add_executable(appScaraHMI
 qt_add_qml_module(appScaraHMI
     URI ScaraHMI
     VERSION 1.0
+
     QML_FILES
         ui/Main.qml
+
+    RESOURCES
+        assets/fonts/SWISHBUT.TTF
 )
 
 target_link_libraries(appScaraHMI

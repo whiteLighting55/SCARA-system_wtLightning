@@ -1,6 +1,0 @@
-module ScaraHMI
-typeinfo appScaraHMI.qmltypes
-prefer :/ScaraHMI/
-Main 1.0 ui/Main.qml
-depends QtQuick
-

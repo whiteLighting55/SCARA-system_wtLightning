@@ -1,0 +1,19 @@
+# Build folders
+build/
+*/build/
+hmi/build/
+
+# CMake
+CMakeFiles/
+CMakeCache.txt
+
+# Qt
+*.qmlc
+*.jsc
+*.rcc
+
+# Binarios
+*.o
+*.a
+*.so
+*.exe
