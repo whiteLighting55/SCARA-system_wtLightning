@@ -12,17 +12,21 @@ qt_add_executable(appScaraHMI
     src/main.cpp
 )
 
-qt_add_qml_module(appScaraHMI
-    URI ScaraHMI
-    VERSION 1.0
 
-    QML_FILES
+
+qt_add_resources(appScaraHMI "qml"
+    PREFIX "/"
+    FILES
         ui/Main.qml
-
-    RESOURCES
         assets/fonts/SWISHBUT.TTF
+)
+
+find_package(Qt6 REQUIRED COMPONENTS Quick SerialPort)
+target_sources(appScaraHMI PRIVATE
+    src/SerialHandler.cpp
 )
 
 target_link_libraries(appScaraHMI
     PRIVATE Qt6::Quick
+    PRIVATE Qt6::Quick Qt6::SerialPort
 )

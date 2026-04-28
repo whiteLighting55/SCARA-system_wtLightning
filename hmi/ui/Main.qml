@@ -2,8 +2,15 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 
+
+
 ApplicationWindow {
 
+
+    property real thetaBase: 0
+property real thetaAltura: 0
+property real thetaElbow: 0
+property real thetaWrist: 0
     FontLoader {
         id: swish
         source: "qrc:/ScaraHMI/assets/fonts/SWISHBUT.TTF"
@@ -91,7 +98,7 @@ ApplicationWindow {
                     sourceComponent: mode === "cartesian" ? cartesianUI : jointsUI
                 }
 
-                // ▶️ BOTÓN
+                // MOVE_HERE BOTÓN
                 Button {
                     id: move_btn
                     Layout.fillWidth: true
@@ -108,6 +115,14 @@ ApplicationWindow {
                         font.pixelSize: 18
                         color: "#000000"
                         anchors.centerIn: parent
+                    }
+                   onClicked: {
+                        serialHandler.sendData(
+                            thetaAltura,
+                            thetaBase,
+                            thetaElbow,
+                            thetaWrist
+                        )
                     }
                 }
             }
@@ -272,11 +287,13 @@ ApplicationWindow {
                                 color: "#FF0000"
                             }
 
-                            Slider {
+                           Slider {
                                 id: sliderB
                                 from: 0
-                                to: 50
+                                to: 360
                                 Layout.fillWidth: true
+
+                                onValueChanged: thetaBase = value
                             }
 
                             Button {
@@ -313,8 +330,10 @@ ApplicationWindow {
                             Slider {
                                 id: sliderE
                                 from: 0
-                                to: 50
+                                to: 360
                                 Layout.fillWidth: true
+
+                                onValueChanged: thetaElbow = value
                             }
 
                             Button {
@@ -351,8 +370,10 @@ ApplicationWindow {
                             Slider {
                                 id: sliderW
                                 from: 0
-                                to: 50
+                                to: 360
                                 Layout.fillWidth: true
+
+                                onValueChanged: thetaWrist = value
                             }
 
                             Button {
@@ -362,6 +383,45 @@ ApplicationWindow {
                                 text: "(>)"
                                 font.family: swish.name
                                 onPressed: sliderW.value += 1
+                            }
+                    }
+                    //Altura
+                             RowLayout {
+                            Layout.fillWidth: true
+                            spacing: 10
+
+                            Button {
+                                Layout.minimumWidth: 40
+                                Layout.maximumWidth: 40
+                                Layout.fillHeight: true
+                                text: "(<)"
+                                font.family: swish.name
+                                onPressed: sliderW.value -= 1
+                            }
+
+                            Text {
+                                text: "height: " + sliderH.value.toFixed(1)
+                                Layout.minimumWidth: 70
+                                Layout.maximumWidth: 70
+                                color: "#0000FF"
+                            }
+
+                            Slider {
+                                id: sliderH
+                                from: 0
+                                to: 1400
+                                Layout.fillWidth: true
+
+                                onValueChanged: thetaAltura = value
+                            }
+
+                            Button {
+                                Layout.minimumWidth: 40
+                                Layout.maximumWidth: 40
+                                Layout.fillHeight: true
+                                text: "(>)"
+                                font.family: swish.name
+                                onPressed: sliderH.value += 1
                             }
                         }
                     }
